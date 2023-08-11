@@ -1,13 +1,7 @@
 package com.example.playerTracker.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 public class Player {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     private String name;
     private int age;
@@ -15,17 +9,19 @@ public class Player {
     private int speed;
     private int accuracy;
     private int strength;
+    private int rating;
 
     public Player() {
     }
 
-    public Player(String name, int age, String position, int speed, int accuracy, int strength) {
+    public Player(String name, int age, String position, int speed, int accuracy, int strength, int rating) {
         this.name = name;
         this.age = age;
         this.position = position;
         this.speed = speed;
         this.accuracy = accuracy;
         this.strength = strength;
+        this.rating = rating;
     }
 
     public Long getId() {
@@ -82,5 +78,13 @@ public class Player {
 
     public void setStrength(int strength) {
         this.strength = strength;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 }
