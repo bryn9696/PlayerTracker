@@ -1,21 +1,34 @@
-<!--<!DOCTYPE html>-->
-<!--<html xmlns:th="http://www.thymeleaf.org" lang="en">-->
-<!--<head>-->
-<!--    <title>Player List</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<h1>Player List</h1>-->
-<!--<table>-->
-<!--    <tr>-->
-<!--        <th>Name</th>-->
-<!--        <th>Position</th>-->
-<!--        <th>Action</th>-->
-<!--    </tr>-->
-<!--    <tr th:each="player : ${players}">-->
-<!--        <td th:text="${player.name}"></td>-->
-<!--        <td th:text="${player.position}"></td>-->
-<!--        <td><a th:href="@{/players/__${player.id}__}">View Details</a></td>-->
-<!--    </tr>-->
-<!--</table>-->
-<!--</body>-->
-<!--</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player List</title>
+</head>
+<body>
+<h1>Player List</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Position</th>
+        <th>Speed</th>
+        <th>Accuracy</th>
+        <th>Strength</th>
+        <th>Rating</th>
+    </tr>
+    <!-- Iterate through players and display each player's data -->
+    <tr th:each="player : ${players}">
+        <td th:text="${player.id}"></td>
+        <td th:text="${player.name}"></td>
+        <td th:text="${player.age}"></td>
+        <td th:text="${player.position}"></td>
+        <td th:text="${player.speed}"></td>
+        <td th:text="${player.accuracy}"></td>
+        <td th:text="${player.strength}"></td>
+        <td th:text="${player.rating}"></td>
+    </tr>
+</table>
+</body>
+</html>

@@ -5,9 +5,7 @@ import com.example.playerTracker.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PlayerController {
@@ -36,11 +34,11 @@ public class PlayerController {
         return "player-details.html";
     }
 
-//    @GetMapping("/player-list")
-//    public String playerList(Model model) {
-//        model.addAttribute("players", playerService.getAllPlayers());
-//        return "player-list.html";
-//    }
+    @GetMapping("/player-list")
+    public String playerList(Model model) {
+        model.addAttribute("players", playerService.getAllPlayers());
+        return "player-list.html";
+    }
 
     @GetMapping("/ratings-form")
     public String ratingForm(Model model) {
@@ -54,4 +52,15 @@ public class PlayerController {
 //        // You need to implement the logic to update player ratings here
 //        return "redirect:/"; // Redirect back to the home page after rating
 //    }
+
+    @GetMapping("/add-player")
+    public String showAddPlayerForm() {
+        return "add-player.html";
+    }
+
+    @PostMapping("/add-player")
+    public String addPlayer(@ModelAttribute Player player) {
+        playerService.addPlayer(player);
+        return "redirect:/player-list";
+    }
 }
