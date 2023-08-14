@@ -21,30 +21,31 @@ public class PlayerController {
 
     @GetMapping("/")
     public String home(Model model) {
+        System.out.println("2222");
         model.addAttribute("players", playerService.getAllPlayers());
-        return "home";
+        return "home.html";
     }
 
     @GetMapping("/player/{id}")
     public String playerDetails(@PathVariable Long id, Model model) {
         Player player = playerService.getPlayerById(id);
         if (player == null) {
-            return "player-not-found";
+            return "player-not-found.html";
         }
         model.addAttribute("player", player);
-        return "player-details";
+        return "player-details.html";
     }
 
 //    @GetMapping("/player-list")
 //    public String playerList(Model model) {
 //        model.addAttribute("players", playerService.getAllPlayers());
-//        return "player-list";
+//        return "player-list.html";
 //    }
 
     @GetMapping("/ratings-form")
     public String ratingForm(Model model) {
         model.addAttribute("players", playerService.getAllPlayers());
-        return "ratings-form";
+        return "ratings-form.html";
     }
 
 //    @PostMapping("/rate-players")
