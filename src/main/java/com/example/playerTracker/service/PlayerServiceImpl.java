@@ -16,11 +16,12 @@ public class PlayerServiceImpl implements PlayerService {
     private final AtomicLong nextId = new AtomicLong(1);
 
     @Override
-    public void addPlayer(Player player) {
+    public Player addPlayer(Player player) {
         long id = nextId.getAndIncrement();
         player.setId(id);
         players.put(id, player);
         System.out.println(players);
+        return player;
     }
 
     @Override
@@ -33,5 +34,4 @@ public class PlayerServiceImpl implements PlayerService {
         return new ArrayList<>(players.values());
     }
 
-    // Implement other methods if needed
 }

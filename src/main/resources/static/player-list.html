@@ -1,34 +1,49 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player List</title>
-</head>
-<body>
-<h1>Player List</h1>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Position</th>
-        <th>Speed</th>
-        <th>Accuracy</th>
-        <th>Strength</th>
-        <th>Rating</th>
-    </tr>
-    <!-- Iterate through players and display each player's data -->
-    <tr th:each="player : ${players}">
-        <td th:text="${player.id}"></td>
-        <td th:text="${player.name}"></td>
-        <td th:text="${player.age}"></td>
-        <td th:text="${player.position}"></td>
-        <td th:text="${player.speed}"></td>
-        <td th:text="${player.accuracy}"></td>
-        <td th:text="${player.strength}"></td>
-        <td th:text="${player.rating}"></td>
-    </tr>
-</table>
-</body>
-</html>
+// PlayerList.js
+import React, { useEffect, useState } from 'react';
+
+function PlayerList() {
+const [players, setPlayers] = useState([]);
+
+useEffect(() => {
+fetch('/api/players')
+.then(response => response.json())
+.then(data => setPlayers(data))
+.catch(error => console.error('Error fetching players:', error));
+}, []);
+
+return (
+<div>
+    <h1>Player List</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Position</th>
+            <th>Speed</th>
+            <th>Accuracy</th>
+            <th>Strength</th>
+            <th>Rating</th>
+        </tr>
+        </thead>
+        <tbody>
+        {players.map(player => (
+        <tr key={player.id}>
+            <td>{player.id}</td>
+            <td>{player.name}</td>
+            <td>{player.age}</td>
+            <td>{player.position}</td>
+            <td>{player.speed}</td>
+            <td>{player.accuracy}</td>
+            <td>{player.strength}</td>
+            <td>{player.rating}</td>
+        </tr>
+        ))}
+        </tbody>
+    </table>
+</div>
+);
+}
+
+export default PlayerList;
