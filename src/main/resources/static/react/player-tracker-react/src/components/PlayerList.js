@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function PlayerList() {
   const [players, setPlayers] = useState([]);
@@ -46,7 +47,9 @@ console.log(players);
           ))}
         </tbody>
       </table>
+      <p><Link to="/">Go Home</Link></p>
     </div>
+
   );
 }
 
