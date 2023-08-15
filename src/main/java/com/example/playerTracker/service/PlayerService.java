@@ -5,7 +5,7 @@ import com.example.playerTracker.model.Player;
 import java.util.List;
 
 public interface PlayerService {
-    Player addPlayer(Player player);
+    List<Player> addPlayer(Player player);
     Player getPlayerById(Long id);
     List<Player> getAllPlayers();
     // Other methods if needed

@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function PlayerList() {
   const [players, setPlayers] = useState([]);
 
   useEffect(() => {
-    fetch('/api/players')
+    fetch('http://localhost:8080/api/players')
       .then(response => response.json())
       .then(data => setPlayers(data))
       .catch(error => console.error('Error fetching players:', error));
   }, []);
 
+  if (!players || players.length === 0) {
+    return <p>Loading...</p>;
+  }
+
+console.log(players);
   return (
     <div>
       <h1>Player List</h1>
