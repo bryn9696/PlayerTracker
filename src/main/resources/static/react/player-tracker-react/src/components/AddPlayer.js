@@ -26,10 +26,8 @@ function AddPlayer() {
   const handleAddPlayer = async () => {
     try {
       await axios.post('http://localhost:8080/api/players', player);
-      // Player added successfully
       console.log('Player added successfully!');
     } catch (error) {
-      // Handle error
       console.error('Error adding player:', error);
     }
   };

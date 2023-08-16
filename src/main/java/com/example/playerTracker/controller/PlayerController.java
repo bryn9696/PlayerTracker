@@ -28,5 +28,4 @@ public class PlayerController {
         return playerService.addPlayer(player);
     }
 
-    // Other methods for updating, deleting, etc.
 }

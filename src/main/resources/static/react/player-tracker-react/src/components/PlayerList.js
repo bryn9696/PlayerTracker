@@ -4,7 +4,7 @@ import './playerList.css';
 
 function PlayerList() {
   const [players, setPlayers] = useState([]);
-  const [error, setError] = useState(null); // Add error state
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch('http://localhost:8080/api/players')

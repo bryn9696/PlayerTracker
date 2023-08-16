@@ -8,5 +8,5 @@ public interface PlayerService {
     List<Player> addPlayer(Player player);
     Player getPlayerById(Long id);
     List<Player> getAllPlayers();
-    // Other methods if needed
+
 }
