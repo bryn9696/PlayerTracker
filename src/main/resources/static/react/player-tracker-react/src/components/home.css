@@ -1,19 +1,21 @@
-
-.App-header {
-  background-color: #282c34;
-  padding: 20px;
-  color: white;
+.container {
+  text-align: center;
+  margin-top: 2rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title {
+  font-size: 2rem;
+  color: #333;
 }
 
-.App-title {
-  font-size: 2em;
+.description {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 1rem;
 }
 
-.App-intro {
-  font-size: large;
+.link {
+  color: #007bff;
+  text-decoration: none;
+  margin-top: 1rem;
 }

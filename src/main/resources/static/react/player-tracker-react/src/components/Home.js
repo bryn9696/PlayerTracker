@@ -13,10 +13,10 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <h1>Player Tracker</h1>
-      <p>Welcome to the Player Tracker app!</p>
-      <p>Here's a list of players:</p>
+    <div className="container">
+      <h1 className="title">Player Tracker</h1>
+      <p className="description">Welcome to the Player Tracker app!</p>
+      <p className="description">Here's a list of players:</p>
       <ul>
         {players.map(player => (
           <li key={player.id}>
@@ -24,8 +24,8 @@ function Home() {
           </li>
         ))}
       </ul>
-      <p><Link to="/add-player">Go to Add Player</Link></p>
-      <p><Link to="/player-list">Go to Player List</Link></p>
+      <p><Link className="link" to="/add-player">Go to Add Player</Link></p>
+      <p><Link className="link" to="/player-list">Go to Player List</Link></p>
     </div>
   );
 }

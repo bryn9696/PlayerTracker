@@ -1,23 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './playerList.css';
 
 function PlayerList() {
   const [players, setPlayers] = useState([]);
+  const [error, setError] = useState(null); // Add error state
 
   useEffect(() => {
     fetch('http://localhost:8080/api/players')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then(data => setPlayers(data))
-      .catch(error => console.error('Error fetching players:', error));
+      .catch(error => {
+        console.error('Error fetching players:', error);
+        setError('Error fetching players. Please try again later.');
+      });
   }, []);
 
   if (!players || players.length === 0) {
     return <p>Loading...</p>;
   }
 
+  if (error) {
+    return <p>{error}</p>;
+  }
+
 console.log(players);
   return (
-    <div>
+    <div className="container">
       <h1>Player List</h1>
       <table>
         <thead>
@@ -47,7 +61,7 @@ console.log(players);
           ))}
         </tbody>
       </table>
-      <p><Link to="/">Go Home</Link></p>
+      <p><Link className="link" to="/">Go Home</Link></p>
     </div>
 
   );

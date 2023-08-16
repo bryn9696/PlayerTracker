@@ -35,15 +35,41 @@ function AddPlayer() {
   };
 
   return (
-    <div>
-      <h1>Add Player</h1>
-      <form>
-        <label>Name: <input type="text" name="name" value={player.name} onChange={handleInputChange} /></label>
-        {/* ... other input fields ... */}
-      </form>
-      <button onClick={handleAddPlayer}>Add Player</button>
-      <p><Link to="/player-list">Go to Player List</Link></p>
-    </div>
+    <div className="container">
+          <h1>Add Player</h1>
+          <form onSubmit={handleAddPlayer}>
+            <div className="form-group">
+              <label className="label" htmlFor="name">Name:</label>
+              <input className="input" type="text" id="name" name="name" value={player.name} onChange={handleInputChange} />
+            </div>
+            <div className="form-group">
+              <label className="label" htmlFor="age">Age:</label>
+              <input className="input" type="number" id="age" name="age" value={player.age} onChange={handleInputChange} />
+            </div>
+            <div className="form-group">
+              <label className="label" htmlFor="position">Position:</label>
+              <input className="input" type="text" id="position" name="position" value={player.position} onChange={handleInputChange} />
+            </div>
+            <div className="form-group">
+              <label className="label" htmlFor="speed">Speed:</label>
+              <input className="input" type="number" id="speed" name="speed" value={player.speed} onChange={handleInputChange} />
+            </div>
+            <div className="form-group">
+              <label className="label" htmlFor="accuracy">Accuracy:</label>
+              <input className="input" type="number" id="accuracy" name="accuracy" value={player.accuracy} onChange={handleInputChange} />
+            </div>
+            <div className="form-group">
+              <label className="label" htmlFor="strength">Strength:</label>
+              <input className="input" type="number" id="strength" name="strength" value={player.strength} onChange={handleInputChange} />
+            </div>
+            <div className="form-group">
+              <label className="label" htmlFor="rating">Rating:</label>
+              <input className="input" type="number" id="rating" name="rating" value={player.rating} onChange={handleInputChange} />
+            </div>
+            <button className="button" type="submit">Add Player</button>
+          </form>
+          <p><Link className="link" to="/player-list">Back to Player List</Link></p>
+        </div>
   );
 }
 
