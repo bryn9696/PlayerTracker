@@ -28,4 +28,14 @@ public class PlayerController {
         return playerService.addPlayer(player);
     }
 
+    @GetMapping("/players/{id}")
+    public Player getPlayerById(@PathVariable Long id) {
+        return playerService.getPlayerById(id);
+//        Player player = playerService.getPlayerById(id);
+//        if (player != null) {
+//            return ResponseEntity.ok(player);
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+    }
 }
