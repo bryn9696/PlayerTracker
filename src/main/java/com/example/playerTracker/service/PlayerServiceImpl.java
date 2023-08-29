@@ -21,6 +21,16 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
+    public List<Player> updatePlayer(Long id, Player updatedPlayer) {
+        if (!playerMap.containsKey(id)) {
+            return null; // Player not found
+        }
+
+        playerMap.put(id, updatedPlayer);
+        return new ArrayList<>(playerMap.values());
+    }
+
+    @Override
     public Player getPlayerById(Long id) {
         return playerMap.get(id);
     }

@@ -1,5 +1,7 @@
 package com.example.playerTracker.model;
 
+import java.util.Date;
+
 public class Player {
 
     private Long id;
@@ -10,6 +12,7 @@ public class Player {
     private int accuracy;
     private int strength;
     private int rating;
+    private Date dateAdded;
 
     public Player() {
     }
@@ -22,6 +25,7 @@ public class Player {
         this.accuracy = accuracy;
         this.strength = strength;
         this.rating = rating;
+        this.dateAdded = new Date();
     }
 
     public Long getId() {
@@ -86,5 +90,13 @@ public class Player {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public Date getDateAdded() {
+        return dateAdded;
+    }
+
+    public void setDateAdded(Date dateAdded) {
+        this.dateAdded = dateAdded;
     }
 }

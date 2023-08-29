@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface PlayerService {
     List<Player> addPlayer(Player player);
+    List<Player> updatePlayer(Long id, Player player);
     Player getPlayerById(Long id);
     List<Player> getAllPlayers();
 
