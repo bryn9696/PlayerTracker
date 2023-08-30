@@ -17,8 +17,10 @@ public class PlayerServiceImpl implements PlayerService {
     public List<Player> addPlayer(Player player) {
         player.setId(nextId++);
         double totalStats = 0;
-        if (player.getSpeed() != 0 || player.getAccuracy() != 0 || player.getStrength() != 0 || player.getRating() != 0) {
-            totalStats = (player.getSpeed() + player.getAccuracy() + player.getStrength() + player.getRating()) / 400.0 * 100.0;
+        if (player.getSpeed() != 0 || player.getAccuracy() != 0 || player.getStrength() != 0 || player.getRating() != 0)
+        {
+            double total = (player.getSpeed() + player.getAccuracy() + player.getStrength() + player.getRating());
+            totalStats = total / 400.0 * 100.0;
         }
         double initialProgression = (totalStats > 0) ? totalStats : 0.0;
         player.setProgression(initialProgression);
