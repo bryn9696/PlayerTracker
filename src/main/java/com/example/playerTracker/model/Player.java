@@ -12,12 +12,14 @@ public class Player {
     private int accuracy;
     private int strength;
     private int rating;
+    private double progression;
     private Date dateAdded;
+    private Date dateLastEdited;
 
     public Player() {
     }
 
-    public Player(String name, int age, String position, int speed, int accuracy, int strength, int rating) {
+    public Player(String name, int age, String position, int speed, int accuracy, int strength, int rating, int progression) {
         this.name = name;
         this.age = age;
         this.position = position;
@@ -25,7 +27,9 @@ public class Player {
         this.accuracy = accuracy;
         this.strength = strength;
         this.rating = rating;
+        this.progression = progression;
         this.dateAdded = new Date();
+        this.dateLastEdited = new Date();
     }
 
     public Long getId() {
@@ -91,6 +95,13 @@ public class Player {
     public void setRating(int rating) {
         this.rating = rating;
     }
+    public double getProgression() {
+        return progression;
+    }
+
+    public void setProgression(double progression) {
+        this.progression = progression;
+    }
 
     public Date getDateAdded() {
         return dateAdded;
@@ -98,5 +109,32 @@ public class Player {
 
     public void setDateAdded(Date dateAdded) {
         this.dateAdded = dateAdded;
+    }
+
+    public void updateAttributes(Player updatedPlayer) {
+        this.name = updatedPlayer.getName();
+        this.age = updatedPlayer.getAge();
+        this.position = updatedPlayer.getPosition();
+
+        // Calculate percentage changes for attributes
+        calculatePercentageChange("strength", strength, updatedPlayer.getStrength());
+        calculatePercentageChange("speed", speed, updatedPlayer.getSpeed());
+        calculatePercentageChange("accuracy", accuracy, updatedPlayer.getAccuracy());
+
+        // Update attributes
+        this.strength = updatedPlayer.getStrength();
+        this.speed = updatedPlayer.getSpeed();
+        this.accuracy = updatedPlayer.getAccuracy();
+        this.rating = updatedPlayer.getRating();
+
+        // Update the last edited date
+        this.dateLastEdited = new Date();
+    }
+
+    private void calculatePercentageChange(String attributeName, int oldValue, int newValue) {
+        if (oldValue != 0) {
+            double percentageChange = ((double) (newValue - oldValue) / oldValue) * 100;
+            System.out.println(attributeName + " percentage change: " + percentageChange);
+        }
     }
 }

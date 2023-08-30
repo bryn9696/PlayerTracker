@@ -44,6 +44,7 @@ console.log(players);
             <th>Accuracy</th>
             <th>Strength</th>
             <th>Rating</th>
+            <th>Progression</th>
             <th>Date Updated</th>
           </tr>
         </thead>
@@ -58,6 +59,7 @@ console.log(players);
               <td>{player.accuracy}</td>
               <td>{player.strength}</td>
               <td>{player.rating}</td>
+              <td>{player.progression}%</td>
               <td>{new Date(player.dateAdded).toLocaleDateString()}</td>
             </tr>
           ))}
