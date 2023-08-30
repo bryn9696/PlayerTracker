@@ -19,7 +19,7 @@ public class Player {
     public Player() {
     }
 
-    public Player(String name, int age, String position, int speed, int accuracy, int strength, int rating, int progression) {
+    public Player(String name, int age, String position, int speed, int accuracy, int strength, int rating, double progression) {
         this.name = name;
         this.age = age;
         this.position = position;
