@@ -76,20 +76,20 @@ function PlayerDetails() {
           </div>
           <div className="form-group">
             <label className="label" htmlFor="speed">Speed:</label>
-            <input className="input" type="number" id="speed" name="speed" value={editedPlayer.speed} onChange={handleInputChange} />
+            <input className="input" type="range" id="speed" name="speed" min="0" max="100" value={editedPlayer.speed} onChange={handleInputChange} />
           </div>
           <div className="form-group">
             <label className="label" htmlFor="accuracy">Accuracy:</label>
-            <input className="input" type="number" id="accuracy" name="accuracy" value={editedPlayer.accuracy} onChange={handleInputChange} />
+            <input className="input" type="range" id="accuracy" name="accuracy" min="0" max="100" value={editedPlayer.accuracy} onChange={handleInputChange} />
           </div>
           <div className="form-group">
             <label className="label" htmlFor="strength">Strength:</label>
-            <input className="input" type="number" id="strength" name="strength" value={editedPlayer.strength} onChange={handleInputChange} />
+            <input className="input" type="range" id="strength" name="strength" min="0" max="100" value={editedPlayer.strength} onChange={handleInputChange} />
           </div>
           <div className="form-group">
             <label className="label" htmlFor="rating">Rating:</label>
+            <input className="input" type="range" id="rating" name="rating" min="0" max="100" value={editedPlayer.rating} onChange={handleInputChange} />
           </div>
-            <input className="input" type="number" id="rating" name="rating" value={editedPlayer.rating} onChange={handleInputChange} />
             <button onClick={handleSaveClick}>Save</button>
             <p><Link className="link" to="/">Go Home</Link></p>
 

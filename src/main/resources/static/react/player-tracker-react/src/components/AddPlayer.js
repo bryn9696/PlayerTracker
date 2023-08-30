@@ -24,6 +24,15 @@ function AddPlayer() {
   };
 
   const handleAddPlayer = async () => {
+    if (
+        player.strength < 0 || player.strength > 100 ||
+        player.speed < 0 || player.speed > 100 ||
+        player.accuracy < 0 || player.accuracy > 100 ||
+        player.rating < 0 || player.rating > 100
+        ) {
+      console.error('Rating must be between 0 and 100');
+      return;
+    }
     try {
       await axios.post('http://localhost:8080/api/players', player);
       console.log('Player added successfully!');
@@ -35,7 +44,7 @@ function AddPlayer() {
   return (
     <div className="container">
           <h1>Add Player</h1>
-          <form onSubmit={handleAddPlayer}>
+          <form>
             <div className="form-group">
               <label className="label" htmlFor="name">Name:</label>
               <input className="input" type="text" id="name" name="name" value={player.name} onChange={handleInputChange} />
@@ -51,20 +60,32 @@ function AddPlayer() {
             <div className="form-group">
               <label className="label" htmlFor="speed">Speed:</label>
               <input className="input" type="number" id="speed" name="speed" value={player.speed} onChange={handleInputChange} />
+              { player.speed < 0 || player.speed > 100 ? (
+                <p className="error-message">Rating must be between 0 and 100</p>
+                ) : null }
             </div>
             <div className="form-group">
               <label className="label" htmlFor="accuracy">Accuracy:</label>
               <input className="input" type="number" id="accuracy" name="accuracy" value={player.accuracy} onChange={handleInputChange} />
+              { player.accuracy < 0 || player.accuracy > 100 ? (
+                <p className="error-message">Rating must be between 0 and 100</p>
+                ) : null }
             </div>
             <div className="form-group">
               <label className="label" htmlFor="strength">Strength:</label>
               <input className="input" type="number" id="strength" name="strength" value={player.strength} onChange={handleInputChange} />
+              { player.strength < 0 || player.strength > 100 ? (
+                <p className="error-message">Rating must be between 0 and 100</p>
+                ) : null }
             </div>
             <div className="form-group">
               <label className="label" htmlFor="rating">Rating:</label>
               <input className="input" type="number" id="rating" name="rating" value={player.rating} onChange={handleInputChange} />
+              { player.rating < 0 || player.rating > 100 ? (
+                <p className="error-message">Rating must be between 0 and 100</p>
+                ) : null }
             </div>
-            <button className="button" type="submit">Add Player</button>
+            <button className="button" type="submit" onClick={handleAddPlayer}>Add Player</button>
           </form>
           <p><Link className="link" to="/player-list">Back to Player List</Link></p>
         </div>
