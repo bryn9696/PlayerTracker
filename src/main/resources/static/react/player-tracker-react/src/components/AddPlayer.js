@@ -12,7 +12,8 @@ function AddPlayer() {
     speed: 0,
     accuracy: 0,
     strength: 0,
-    rating: 0
+    rating: 0,
+    team: ''
   });
 
   const handleInputChange = event => {
@@ -85,6 +86,10 @@ function AddPlayer() {
                 <p className="error-message">Rating must be between 0 and 100</p>
                 ) : null }
             </div>
+             <div className="form-group">
+               <label className="label" htmlFor="team">Team:</label>
+               <input className="input" type="text" id="team" name="team" value={player.team} onChange={handleInputChange} />
+             </div>
             <button className="button" type="submit" onClick={handleAddPlayer}>Add Player</button>
           </form>
           <p><Link className="link" to="/player-list">Back to Player List</Link></p>

@@ -103,6 +103,7 @@ function PlayerDetails() {
           <p>Accuracy: {player.accuracy}</p>
           <p>Strength: {player.strength}</p>
           <p>Rating: {player.rating}</p>
+          <p>Team: {player.team}</p>
           <p>Edited On: {formatDate(player.dateAdded)}</p>
           <button onClick={handleEditClick}>Edit</button>
           <p><Link className="link" to="/">Go Home</Link></p>
