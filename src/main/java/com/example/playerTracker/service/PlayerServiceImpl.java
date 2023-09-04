@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class PlayerServiceImpl implements PlayerService {
@@ -68,9 +69,6 @@ public class PlayerServiceImpl implements PlayerService {
         }
     }
 
-    // ... other methods ...
-
-    // Helper method to calculate progression between old and new values
     private double calculateProgression(double oldValue, double newValue) {
         double percentageIncrease = ((newValue - oldValue) / 400 * 100.0) ;  // Increase by 1 equals 1%
         double maxPercentageIncrease = 400.0;
@@ -80,5 +78,23 @@ public class PlayerServiceImpl implements PlayerService {
         }
 
         return percentageIncrease;
+    }
+
+    @Override
+    public List<Player> getPlayersByTeam(String team) {
+        return playerMap.values()
+                .stream()
+                .filter(player -> team.equals(player.getTeam()))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public boolean updatePlayerTeam(Long id, String team) {
+        Player player = playerMap.get(id);
+        if (player != null) {
+            player.setTeam(team);
+            return true;
+        }
+        return false;
     }
 }

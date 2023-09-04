@@ -50,4 +50,18 @@ public class PlayerController {
 
         return ResponseEntity.ok(updatedPlayers);
     }
+
+    @GetMapping("/byTeam/{team}")
+    public List<Player> getPlayersByTeam(@PathVariable String team) {
+        return playerService.getPlayersByTeam(team);
+    }
+
+    // Update a player's team
+    @PutMapping("/{id}/team")
+    public ResponseEntity<String> updatePlayerTeam(@PathVariable long id, @RequestBody String team) {
+        if (playerService.updatePlayerTeam(id, team)) {
+            return new ResponseEntity<>("Player team updated successfully.", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Player not found.", HttpStatus.NOT_FOUND);
+    }
 }

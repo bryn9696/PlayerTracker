@@ -15,11 +15,12 @@ public class Player {
     private double progression;
     private Date dateAdded;
     private Date dateLastEdited;
+    private String team;
 
     public Player() {
     }
 
-    public Player(String name, int age, String position, int speed, int accuracy, int strength, int rating, double progression) {
+    public Player(String name, int age, String position, int speed, int accuracy, int strength, int rating, double progression, String team) {
         this.name = name;
         this.age = age;
         this.position = position;
@@ -30,6 +31,7 @@ public class Player {
         this.progression = progression;
         this.dateAdded = new Date();
         this.dateLastEdited = new Date();
+        this.team = team;
     }
 
     public Long getId() {
@@ -136,5 +138,13 @@ public class Player {
             double percentageChange = ((double) (newValue - oldValue) / oldValue) * 100;
             System.out.println(attributeName + " percentage change: " + percentageChange);
         }
+    }
+
+    public String getTeam() {
+        return team;
+    }
+
+    public void setTeam(String team) {
+        this.team = team;
     }
 }

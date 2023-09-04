@@ -9,6 +9,7 @@ public interface PlayerService {
     List<Player> updatePlayer(Long id, Player player);
     Player getPlayerById(Long id);
     List<Player> getAllPlayers();
-//    int progression(int speed, int updatedSpeed, Long id, Player updatedPlayer);
+    List<Player> getPlayersByTeam(String team);
+    boolean updatePlayerTeam(Long id, String team);
 
 }
