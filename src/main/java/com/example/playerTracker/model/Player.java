@@ -113,6 +113,14 @@ public class Player {
         this.dateAdded = dateAdded;
     }
 
+    public Date getDateLastEdited() {
+        return dateAdded;
+    }
+
+    public void setDateLastEdited(Date dateAdded) {
+        this.dateAdded = dateAdded;
+    }
+
     public void updateAttributes(Player updatedPlayer) {
         this.name = updatedPlayer.getName();
         this.age = updatedPlayer.getAge();
@@ -122,6 +130,7 @@ public class Player {
         calculatePercentageChange("strength", strength, updatedPlayer.getStrength());
         calculatePercentageChange("speed", speed, updatedPlayer.getSpeed());
         calculatePercentageChange("accuracy", accuracy, updatedPlayer.getAccuracy());
+
 
         // Update attributes
         this.strength = updatedPlayer.getStrength();

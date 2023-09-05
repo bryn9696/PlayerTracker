@@ -25,7 +25,7 @@ class PlayerControllerTest {
 
     @Test
     void testGetAllPlayers() throws Exception {
-        when(playerService.getAllPlayers()).thenReturn(Arrays.asList(new Player("Bryn", 27, "ST", 80, 90, 70, 85, 81.25)));
+        when(playerService.getAllPlayers()).thenReturn(Arrays.asList(new Player("Bryn", 27, "ST", 80, 90, 70, 85, 81.25, "Hares")));
 
         mockMvc.perform(get("/api/players"))
                 .andExpect(status().isOk())

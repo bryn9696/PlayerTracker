@@ -18,8 +18,8 @@ class PlayerServiceTests {
     @Test
     void testGetAllPlayers() {
         PlayerServiceImpl playerService = new PlayerServiceImpl();
-        playerService.addPlayer(new Player("Bryn", 27, "CB", 80, 90, 70, 85, 81.25));
-        playerService.addPlayer(new Player("John", 25, "ST", 75, 85, 65, 80, 76.25));
+        playerService.addPlayer(new Player("Bryn", 27, "CB", 80, 90, 70, 85, 81.25, "Hares"));
+        playerService.addPlayer(new Player("John", 25, "ST", 75, 85, 65, 80, 76.25, "Swans"));
 
         List<Player> players = playerService.getAllPlayers();
 
