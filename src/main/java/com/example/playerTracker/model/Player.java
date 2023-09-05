@@ -121,34 +121,6 @@ public class Player {
         this.dateAdded = dateAdded;
     }
 
-    public void updateAttributes(Player updatedPlayer) {
-        this.name = updatedPlayer.getName();
-        this.age = updatedPlayer.getAge();
-        this.position = updatedPlayer.getPosition();
-
-        // Calculate percentage changes for attributes
-        calculatePercentageChange("strength", strength, updatedPlayer.getStrength());
-        calculatePercentageChange("speed", speed, updatedPlayer.getSpeed());
-        calculatePercentageChange("accuracy", accuracy, updatedPlayer.getAccuracy());
-
-
-        // Update attributes
-        this.strength = updatedPlayer.getStrength();
-        this.speed = updatedPlayer.getSpeed();
-        this.accuracy = updatedPlayer.getAccuracy();
-        this.rating = updatedPlayer.getRating();
-
-        // Update the last edited date
-        this.dateLastEdited = new Date();
-    }
-
-    private void calculatePercentageChange(String attributeName, int oldValue, int newValue) {
-        if (oldValue != 0) {
-            double percentageChange = ((double) (newValue - oldValue) / oldValue) * 100;
-            System.out.println(attributeName + " percentage change: " + percentageChange);
-        }
-    }
-
     public String getTeam() {
         return team;
     }
