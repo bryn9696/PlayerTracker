@@ -90,6 +90,10 @@ function PlayerDetails() {
             <label className="label" htmlFor="rating">Rating:</label>
             <input className="input" type="range" id="rating" name="rating" min="0" max="100" value={editedPlayer.rating} onChange={handleInputChange} />
           </div>
+          <div className="form-group">
+            <label className="label" htmlFor="team">Team:</label>
+            <input className="input" type="text" id="team" name="team" value={editedPlayer.team} onChange={handleInputChange} />
+          </div>
             <button onClick={handleSaveClick}>Save</button>
             <p><Link className="link" to="/">Go Home</Link></p>
 

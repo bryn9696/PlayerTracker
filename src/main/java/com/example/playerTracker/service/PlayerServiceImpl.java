@@ -61,6 +61,7 @@ public class PlayerServiceImpl implements PlayerService {
             playerToUpdate.setStrength(updatedPlayer.getStrength());
             playerToUpdate.setRating(updatedPlayer.getRating());
             playerToUpdate.setProgression(cumulativeProgression);
+            playerToUpdate.setTeam(updatedPlayer.getTeam());
 
             // Return the updated list of players
             return new ArrayList<>(playerMap.values());
