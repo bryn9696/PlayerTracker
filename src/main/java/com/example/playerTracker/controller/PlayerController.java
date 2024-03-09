@@ -1,7 +1,9 @@
 package com.example.playerTracker.controller;
 
 import com.example.playerTracker.model.Player;
+import com.example.playerTracker.model.Team;
 import com.example.playerTracker.service.PlayerService;
+import com.example.playerTracker.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +17,12 @@ import java.util.List;
 public class PlayerController {
 
     private final PlayerService playerService;
+    private final TeamService teamService;
 
     @Autowired
-    public PlayerController(PlayerService playerService) {
+    public PlayerController(PlayerService playerService, TeamService teamService) {
         this.playerService = playerService;
+        this.teamService = teamService;
     }
 
     @GetMapping("/players")
@@ -49,6 +53,11 @@ public class PlayerController {
         }
 
         return ResponseEntity.ok(updatedPlayers);
+    }
+
+    @GetMapping("/teams")
+    public List<Team> getAllTeams() {
+        return teamService.getAllTeams();
     }
 
     @GetMapping("/byTeam/{team}")
