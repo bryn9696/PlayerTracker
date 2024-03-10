@@ -7,7 +7,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.example.playerTracker.controller.PlayerController;
 import com.example.playerTracker.model.Player;
+import com.example.playerTracker.model.Team;
 import com.example.playerTracker.service.PlayerService;
+import com.example.playerTracker.service.TeamService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -27,6 +29,9 @@ public class PlayerControllerTest {
     @Mock
     private PlayerService playerService;
 
+    @Mock
+    private TeamService teamService;
+
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
@@ -45,6 +50,19 @@ public class PlayerControllerTest {
     }
 
     @Test
+    public void testGetAllTeams() {
+        List<Team> teams = new ArrayList<>();
+        teams.add(new Team("Team 1", 25, "Forward", 90));
+        when(teamService.getAllTeams()).thenReturn(teams);
+
+        List<Team> result = playerController.getAllTeams();
+
+        System.out.println(teams.get(0).getName());
+        assertThat(result, hasSize(1));
+        assertEquals(teams, result);
+    }
+
+    @Test
     public void testAddPlayer() {
         Player playerToAdd = new Player("New Player", 22, "Midfielder", 88, 90, 80, 82, 0.0, "Team B");
         List<Player> updatedPlayers = new ArrayList<>();
@@ -57,6 +75,21 @@ public class PlayerControllerTest {
 
         assertThat(result, hasSize(2));
         assertEquals(updatedPlayers, result);
+    }
+    @Test
+    public void testAddTeam() {
+        Team teamToAdd = new Team("hares", 22, "bryn", 88);
+        List<Team> updatedTeams = new ArrayList<>();
+        updatedTeams.add(new Team("Team 1", 25, "Forward", 90));
+        updatedTeams.add(teamToAdd);
+
+        when(teamService.addTeam(teamToAdd)).thenReturn(updatedTeams);
+
+        List<Team> result = playerController.addTeam(teamToAdd);
+        System.out.println(result.get(0).getName());
+
+        assertThat(result, hasSize(2));
+        assertEquals(updatedTeams, result);
     }
 
     @Test

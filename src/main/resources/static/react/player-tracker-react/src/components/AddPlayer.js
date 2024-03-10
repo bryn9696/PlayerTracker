@@ -92,7 +92,7 @@ function AddPlayer() {
              </div>
             <button className="button" type="submit" onClick={handleAddPlayer}>Add Player</button>
           </form>
-          <p><Link className="link" to="/player-list">Back to Player List</Link></p>
+          <p><Link className="link" to="/players">Back to Player List</Link></p>
         </div>
   );
 }
