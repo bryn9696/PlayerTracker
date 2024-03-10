@@ -35,8 +35,6 @@ public class PlayerController {
     {
         player.setDateAdded(new Date());
         return playerService.addPlayer(player);
-//        Player addedPlayer = playerService.addPlayer(player);
-//        return ResponseEntity.status(HttpStatus.CREATED).body(addedPlayer);
     }
 
     @GetMapping("/players/{id}")
@@ -58,6 +56,13 @@ public class PlayerController {
     @GetMapping("/teams")
     public List<Team> getAllTeams() {
         return teamService.getAllTeams();
+    }
+
+    @PostMapping("/teams")
+    public List<Team> addTeam(@RequestBody Team team)
+    {
+        team.setDateAdded(new Date());
+        return teamService.addTeam(team);
     }
 
     @GetMapping("/byTeam/{team}")
