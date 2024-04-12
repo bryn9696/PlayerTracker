@@ -46,6 +46,7 @@ function Home() {
       <Link to="/teams" className="link">Teams</Link>
       <Link to="/add-player" className="link">Add Players</Link>
       <Link to="/players" className="link">Players</Link>
+      <Link to="/players" className="link">Edit Players</Link>
 
     </div>
   );

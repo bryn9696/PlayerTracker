@@ -50,6 +50,7 @@ function Players() {
               <th>Progression</th>
               <th>Team</th>
               <th>Date Updated</th>
+              <th>Edit Player</th>
             </tr>
           </thead>
           <tbody>
@@ -66,6 +67,7 @@ function Players() {
                 <td>{player.progression}%</td>
                 <td>{player.team}</td>
                 <td>{new Date(player.dateAdded).toLocaleDateString()}</td>
+                <td><Link to={`/player/${player.id}`} className="link">Edit Player</Link></td>
               </tr>
             ))}
           </tbody>

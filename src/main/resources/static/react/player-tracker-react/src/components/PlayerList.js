@@ -47,6 +47,7 @@ console.log(players);
             <th>Progression</th>
             <th>Team</th>
             <th>Date Updated</th>
+
           </tr>
         </thead>
         <tbody>
@@ -63,6 +64,7 @@ console.log(players);
               <td>{player.progression}%</td>
               <td>{player.team}</td>
               <td>{new Date(player.dateAdded).toLocaleDateString()}</td>
+
             </tr>
           ))}
         </tbody>
